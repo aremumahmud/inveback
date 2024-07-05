@@ -7,14 +7,6 @@ const app = require('./app');
 const http = require('http');
 
 
-const server = http.createServer(app);
-const io = socketIo(server, {
-    cors: {
-        origin: ["https://dashboard.ledgecapitals.com"],
-        methods: ["GET", "POST"]
-    }
-});
-
 
 dotenv.config()
 
@@ -33,6 +25,6 @@ mongoose.connect(process.env.mongoURI || 'mongodb://localhost:27017/invest', {
 
 
 
-server.listen(3000, () => {
+app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
