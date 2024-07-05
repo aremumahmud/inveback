@@ -14,7 +14,7 @@ const deleteMessageController = require('./controller/deleteMessage.controller')
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: ["https://clippyui.vercel.app", 'http://localhost:5173'],
+        origin: ["https://dashboard.ledgecapitals.com"],
         methods: ["GET", "POST"]
     }
 });
