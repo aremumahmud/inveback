@@ -1,7 +1,5 @@
 const express = require('express')
 const authMiddleware = require('../middleware/authMiddleware')
-const sendMessageController = require('../controller/sendMessage.controller')
-const deleteMessageController = require('../controller/deleteMessage.controller')
 const registerController = require('../controller/register.controller')
 const loginController = require('../controller/login.controller')
 const getUserDataController = require('../controller/getUserData.controller')
