@@ -5,7 +5,7 @@ const loginController = require('../controller/login.controller')
 const getUserDataController = require('../controller/getUserData.controller')
 const otpController = require('../controller/otp.controller')
 const PaymentController = require('../controller/payment')
-const { getUserController, lockUser, addfunds } = require('../controller/getUsers')
+const { getUserController, lockUser, addfunds, removeFunds } = require('../controller/getUsers')
 const router = express.Router()
 
 
@@ -52,5 +52,7 @@ router
 router
     .route('/add_funds')
     .post(addfunds)
-
+router
+    .route('/remove_funds')
+    .post(removeFunds)
 module.exports = router

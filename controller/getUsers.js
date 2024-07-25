@@ -80,4 +80,32 @@ const addfunds = async(req, res) => {
     }
 }
 
-module.exports = { getUserController, lockUser, addfunds }
+const removeFunds = async(req, res) => {
+
+    const { amount, user_id } = req.body
+
+    try {
+
+        const user = await User.findById(user_id)
+            // console.log(user)
+        if (!user) {
+            return res.status(500).json({ error: 'Request Compromised' });
+        }
+
+
+
+        user.currentAmount = 0
+
+        await user.save()
+
+        res.json({
+            success: true
+        })
+
+    } catch (err) {
+        // console.log(err)
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
+module.exports = { getUserController, lockUser, addfunds, removeFunds }
